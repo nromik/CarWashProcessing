@@ -1,0 +1,43 @@
+04.09.2018 0:38:00 Request finished in 0.987ms 200 text/html
+04.09.2018 0:38:01 Request starting HTTP/1.1 GET http://localhost:62428/swagger/v1/swagger.json  
+04.09.2018 0:38:01 Request finished in 2.9631ms 500 
+04.09.2018 0:38:01 Request starting HTTP/1.1 GET http://localhost:62428/swagger/favicon-32x32.png  
+04.09.2018 0:38:01 Request finished in 0.2784ms 200 image/png
+04.09.2018 0:38:27 Request starting HTTP/1.1 GET http://localhost:62428/swagger/index.html  
+04.09.2018 0:38:27 Connection id "0HLGHSL9882I9", Request id "0HLGHSL9882I9:00000009": An unhandled exception was thrown by the application.
+04.09.2018 0:38:27 Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+04.09.2018 0:40:46 Start
+04.09.2018 0:40:46 Request starting HTTP/1.1 GET http://localhost:62428/swagger/index.html  
+04.09.2018 0:40:47 Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+04.09.2018 0:40:46 Request finished in 21.2482ms 200 text/html
+04.09.2018 0:40:46 Request starting HTTP/1.1 GET http://localhost:62428/swagger/v1/swagger.json  
+04.09.2018 0:40:47 Request starting HTTP/1.1 GET http://localhost:62428/swagger/favicon-32x32.png  
+04.09.2018 0:40:47 Request finished in 21.0835ms 200 image/png
+04.09.2018 0:40:47 Request finished in 217.4164ms 200 application/json;charset=utf-8
+04.09.2018 0:41:07 Request starting HTTP/1.1 POST http://localhost:62428/api/Task application/json-patch+json 44
+04.09.2018 0:41:07 Failed to determine the https port for redirect.
+04.09.2018 0:41:07 Route matched with {action = "Run", controller = "Task"}. Executing action CarWashLine.Controllers.TaskController.Run (CarWashLine)
+04.09.2018 0:41:08 Executing action method CarWashLine.Controllers.TaskController.Run (CarWashLine) with arguments (0, CarWashLine.Controllers.TaskInfo) - Validation state: Valid
+04.09.2018 0:41:13 Executed action method CarWashLine.Controllers.TaskController.Run (CarWashLine), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 5017.0882ms.
+04.09.2018 0:41:13 Executing ObjectResult, writing value of type 'System.Boolean'.
+04.09.2018 0:41:13 Request finished in 5164.7738ms 200 application/json; charset=utf-8
+04.09.2018 0:41:51 Request starting HTTP/1.1 POST http://localhost:62428/api/Task application/json-patch+json 43
+04.09.2018 0:41:13 Executed action CarWashLine.Controllers.TaskController.Run (CarWashLine) in 5074.2477ms
+04.09.2018 0:41:51 Route matched with {action = "Run", controller = "Task"}. Executing action CarWashLine.Controllers.TaskController.Run (CarWashLine)
+04.09.2018 0:41:51 Executing ObjectResult, writing value of type 'System.Boolean'.
+04.09.2018 0:41:51 Request finished in 518.6119ms 200 application/json; charset=utf-8
+04.09.2018 0:41:58 Request starting HTTP/1.1 POST http://localhost:62428/api/Task application/json-patch+json 43
+04.09.2018 0:41:51 Executing action method CarWashLine.Controllers.TaskController.Run (CarWashLine) with arguments (0, CarWashLine.Controllers.TaskInfo) - Validation state: Valid
+04.09.2018 0:41:51 Executed action method CarWashLine.Controllers.TaskController.Run (CarWashLine), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 506.3231ms.
+04.09.2018 0:41:51 Executed action CarWashLine.Controllers.TaskController.Run (CarWashLine) in 515.0617ms
+04.09.2018 0:41:58 Route matched with {action = "Run", controller = "Task"}. Executing action CarWashLine.Controllers.TaskController.Run (CarWashLine)
+04.09.2018 0:41:58 Executing action method CarWashLine.Controllers.TaskController.Run (CarWashLine) with arguments (0, CarWashLine.Controllers.TaskInfo) - Validation state: Valid
+04.09.2018 0:41:59 Executing ObjectResult, writing value of type 'System.Boolean'.
+04.09.2018 0:41:59 Request finished in 502.7696ms 200 application/json; charset=utf-8
+04.09.2018 1:00:52 Request starting HTTP/1.1 GET http://localhost:62428/swagger/v1/swagger.json  
+04.09.2018 1:00:52 Request finished in 3.5869ms 200 application/json;charset=utf-8
+04.09.2018 1:11:26 Request starting HTTP/1.1 POST http://localhost:62428/api/Task?taskId=1 application/json 36
+04.09.2018 1:11:26 Request starting HTTP/1.1 POST http://localhost:62428/api/Task?taskId=2 application/json 35
+04.09.2018 1:11:28 Executing ObjectResult, writing value of type 'System.Boolean'.
+04.09.2018 1:11:28 Request finished in 2008.2808ms 200 application/json; charset=utf-8
+04.09.2018 1:11:31 Request finished in 5018.6188ms 200 application/json; charset=utf-8

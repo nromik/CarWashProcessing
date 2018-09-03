@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarWashProcessing.DataModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using MyNamespace;
 
 namespace CarWashProcessing.Controllers
 {
@@ -29,24 +31,44 @@ namespace CarWashProcessing.Controllers
                 DataPost = DateTime.Now,
                 OrderTypeId = (int)model.OrderType
             });
-            var task = await _dbContext.vw_OrderTasks.Where(o => o.OrderTypeId == order.Entity.OrderTypeId)
+            var orderTasks = await _dbContext.vw_OrderTasks.Where(o => o.OrderTypeId == order.Entity.OrderTypeId)
                 .ToArrayAsync();
 
-            order.Entity.Price = task.Sum(t => t.Price);
+            order.Entity.Price = orderTasks.Sum(t => t.Price);
 
             await _dbContext.SaveChangesAsync();
-            
 
+            order.Entity.StartTime = DateTime.Now;
+            
+            Client client = new Client("http://localhost:62428");
+            var tasks = new List<Task<bool>>();
+            foreach (var orderTask in orderTasks)
+            {
+                TaskInfo taskInfo = new TaskInfo
+                {
+                    NeedWorker = orderTask.NeedWorker,
+                    Duration = orderTask.Duration,
+                };
+                tasks.Add(client.ApiTaskPostAsync(orderTask.TaskId, taskInfo));
+            }
+
+            await Task.WhenAll(tasks);
+            order.Entity.EndTime = DateTime.Now;
+            await _dbContext.SaveChangesAsync();
 
             return order.Entity;
-
         }
 
         [HttpGet]
-        public async Task<vw_OrderTask[]> GetAll(int orderTypeId)
+        [Route("orderTypes")]
+        public async Task<vw_OrderTask[]> GetAll(int? orderTypeId)
         {
-            var orders = await _dbContext.vw_OrderTasks.Where(o => o.OrderTypeId == orderTypeId).ToArrayAsync();
-            return orders;
+
+            var orders = _dbContext.vw_OrderTasks.Where(o => true);
+            if (orderTypeId != null)
+                orders = orders.Where(o => o.OrderTypeId == orderTypeId);
+
+            return await orders.ToArrayAsync();
         }
     }
 
