@@ -1,8 +1,8 @@
-﻿using CarWashProcessing.DataModel;
+﻿using System;
 using Microsoft.EntityFrameworkCore;
-using WebApplication2;
+using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace CarWashProcessing
+namespace CarWashProcessing.DataModels
 {
     public partial class CarWashProcessingContext : DbContext
     {
@@ -16,6 +16,8 @@ namespace CarWashProcessing
         }
 
         public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<OrderTask> OrderTask { get; set; }
+        public virtual DbSet<OrderType> OrderType { get; set; }
         public virtual DbSet<TaskType> TaskType { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -29,10 +31,32 @@ namespace CarWashProcessing
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Orders>(entity =>
+            {
+                entity.Property(e => e.EndTime).HasColumnType("datetime");
+
+                entity.Property(e => e.StartTime).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<OrderTask>(entity =>
+            {
+                entity.HasKey(e => new { e.OrderId, e.TaskId });
+            });
+
+            modelBuilder.Entity<OrderType>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Description).HasMaxLength(256);
+
+                entity.Property(e => e.Name).HasMaxLength(50);
+            });
+
             modelBuilder.Entity<TaskType>(entity =>
             {
                 entity.Property(e => e.Name).HasMaxLength(50);
             });
+            OnModelCreatingViews(modelBuilder);
         }
     }
 }

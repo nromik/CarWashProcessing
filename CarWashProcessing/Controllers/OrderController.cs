@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
-using CarWashProcessing.DataModel;
+using CarWashProcessing.DataModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using WebApplication2;
 
 namespace CarWashProcessing.Controllers
 {
@@ -27,19 +27,25 @@ namespace CarWashProcessing.Controllers
                 CarNumber = model.CarNumber,
                 ClientName = model.ClientName,
                 DataPost = DateTime.Now,
-                OrderType = (int)model.OrderType
-
+                OrderTypeId = (int)model.OrderType
             });
+            var task = await _dbContext.vw_OrderTasks.Where(o => o.OrderTypeId == order.Entity.OrderTypeId)
+                .ToArrayAsync();
+
+            order.Entity.Price = task.Sum(t => t.Price);
+
             await _dbContext.SaveChangesAsync();
+            
+
 
             return order.Entity;
 
         }
 
         [HttpGet]
-        public async Task<Orders[]> GetAll()
+        public async Task<vw_OrderTask[]> GetAll(int orderTypeId)
         {
-            Orders[] orders = await _dbContext.Orders.ToArrayAsync();
+            var orders = await _dbContext.vw_OrderTasks.Where(o => o.OrderTypeId == orderTypeId).ToArrayAsync();
             return orders;
         }
     }
@@ -58,6 +64,8 @@ namespace CarWashProcessing.Controllers
         Type3 = 3,
         Type4 = 4,
     }
+
+
 
    
 

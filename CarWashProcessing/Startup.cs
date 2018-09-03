@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.IO;
+using CarWashProcessing.DataModels;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace CarWashProcessing
@@ -23,19 +26,20 @@ namespace CarWashProcessing
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "Main API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "CarWash API", Version = "v1" });
             });
             services.AddSingleton<IConfiguration>(Configuration);
 
             services.AddDbContext<CarWashProcessingContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("CarWashConnection")));
-            
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        {   
+            loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
+            var logger = loggerFactory.CreateLogger("FileLogger");
+            logger.Log(LogLevel.Information, "Start");
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -50,9 +54,10 @@ namespace CarWashProcessing
             {
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseMvc();
+
             
         }
     }

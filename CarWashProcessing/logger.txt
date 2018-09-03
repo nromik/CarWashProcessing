@@ -1,0 +1,86 @@
+Request starting HTTP/1.1 GET http://localhost:44392/api/values  
+Route matched with {action = "Get", controller = "Values"}. Executing action CarWashProcessing.Controllers.ValuesController.Get (CarWashProcessing)
+Executing ObjectResult, writing value of type 'System.String[]'.
+Request starting HTTP/1.1 GET http://localhost:44392/api/values  
+Route matched with {action = "Get", controller = "Values"}. Executing action CarWashProcessing.Controllers.ValuesController.Get (CarWashProcessing)
+Executing ObjectResult, writing value of type 'System.String[]'.
+Request starting HTTP/1.1 GET http://localhost:44392/api/Order?orderTypeId=2  
+Route matched with {action = "GetAll", controller = "Order"}. Executing action CarWashProcessing.Controllers.OrderController.GetAll (CarWashProcessing)
+No type was specified for the decimal column 'Price' on entity type 'Orders'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.
+Entity Framework Core 2.1.2-rtm-30932 initialized 'CarWashProcessingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (12ms) [Parameters=[@__orderTypeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Duration], [o].[NeedWorker], [o].[OrderDescription], [o].[OrderName], [o].[OrderTypeId], [o].[Price], [o].[TaskId], [o].[TaskName]
+FROM [vw_OrderTask] AS [o]
+WHERE [o].[OrderTypeId] = @__orderTypeId_0
+Executing ObjectResult, writing value of type 'CarWashProcessing.DataModels.vw_OrderTask[]'.
+Request finished in 1363.967ms 200 application/json; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44392/api/Order?orderTypeId=1  
+Executing action method CarWashProcessing.Controllers.OrderController.GetAll (CarWashProcessing) with arguments (2) - Validation state: Valid
+Executed action method CarWashProcessing.Controllers.OrderController.GetAll (CarWashProcessing), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 948.7638ms.
+Executed action CarWashProcessing.Controllers.OrderController.GetAll (CarWashProcessing) in 1155.9586ms
+Route matched with {action = "GetAll", controller = "Order"}. Executing action CarWashProcessing.Controllers.OrderController.GetAll (CarWashProcessing)
+Entity Framework Core 2.1.2-rtm-30932 initialized 'CarWashProcessingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (6ms) [Parameters=[@__orderTypeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Duration], [o].[NeedWorker], [o].[OrderDescription], [o].[OrderName], [o].[OrderTypeId], [o].[Price], [o].[TaskId], [o].[TaskName]
+FROM [vw_OrderTask] AS [o]
+WHERE [o].[OrderTypeId] = @__orderTypeId_0
+Executing ObjectResult, writing value of type 'CarWashProcessing.DataModels.vw_OrderTask[]'.
+03.09.2018 23:25:36Start
+03.09.2018 23:25:36Request starting HTTP/1.1 GET http://localhost:44392/api/values  
+03.09.2018 23:25:36Route matched with {action = "Get", controller = "Values"}. Executing action CarWashProcessing.Controllers.ValuesController.Get (CarWashProcessing)
+03.09.2018 23:25:36Executing ObjectResult, writing value of type 'System.String[]'.
+03.09.2018 23:25:36Request finished in 132.6972ms 200 application/json; charset=utf-8
+03.09.2018 23:25:42Request starting HTTP/1.1 GET http://localhost:44392/api/Order?orderTypeId=2  
+03.09.2018 23:25:36Executing action method CarWashProcessing.Controllers.ValuesController.Get (CarWashProcessing) - Validation state: Valid
+03.09.2018 23:25:36Executed action method CarWashProcessing.Controllers.ValuesController.Get (CarWashProcessing), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.1636ms.
+03.09.2018 23:25:36Executed action CarWashProcessing.Controllers.ValuesController.Get (CarWashProcessing) in 22.0451ms
+03.09.2018 23:25:42Route matched with {action = "GetAll", controller = "Order"}. Executing action CarWashProcessing.Controllers.OrderController.GetAll (CarWashProcessing)
+03.09.2018 23:25:42No type was specified for the decimal column 'Price' on entity type 'Orders'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.
+03.09.2018 23:25:42Entity Framework Core 2.1.2-rtm-30932 initialized 'CarWashProcessingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+03.09.2018 23:25:42Executed DbCommand (20ms) [Parameters=[@__orderTypeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Duration], [o].[NeedWorker], [o].[OrderDescription], [o].[OrderName], [o].[OrderTypeId], [o].[Price], [o].[TaskId], [o].[TaskName]
+FROM [vw_OrderTask] AS [o]
+WHERE [o].[OrderTypeId] = @__orderTypeId_0
+03.09.2018 23:25:42Executing ObjectResult, writing value of type 'CarWashProcessing.DataModels.vw_OrderTask[]'.
+03.09.2018 23:26:49 Start
+03.09.2018 23:26:49 Request starting HTTP/1.1 GET http://localhost:44392/api/Order  
+03.09.2018 23:26:50 Route matched with {action = "GetAll", controller = "Order"}. Executing action CarWashProcessing.Controllers.OrderController.GetAll (CarWashProcessing)
+03.09.2018 23:26:50 No type was specified for the decimal column 'Price' on entity type 'Orders'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.
+03.09.2018 23:26:50 Entity Framework Core 2.1.2-rtm-30932 initialized 'CarWashProcessingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+03.09.2018 23:26:50 Executed DbCommand (14ms) [Parameters=[@__orderTypeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Duration], [o].[NeedWorker], [o].[OrderDescription], [o].[OrderName], [o].[OrderTypeId], [o].[Price], [o].[TaskId], [o].[TaskName]
+FROM [vw_OrderTask] AS [o]
+WHERE [o].[OrderTypeId] = @__orderTypeId_0
+03.09.2018 23:26:50 Executing ObjectResult, writing value of type 'CarWashProcessing.DataModels.vw_OrderTask[]'.
+03.09.2018 23:26:51 Request finished in 1059.72ms 200 application/json; charset=utf-8
+03.09.2018 23:27:21 Request starting HTTP/1.1 POST http://localhost:44392/api/Order application/json-patch+json 74
+03.09.2018 23:26:50 Executing action method CarWashProcessing.Controllers.OrderController.GetAll (CarWashProcessing) with arguments (0) - Validation state: Valid
+03.09.2018 23:26:50 Executed action method CarWashProcessing.Controllers.OrderController.GetAll (CarWashProcessing), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 804.9346ms.
+03.09.2018 23:26:51 Executed action CarWashProcessing.Controllers.OrderController.GetAll (CarWashProcessing) in 940.9083ms
+03.09.2018 23:27:21 Route matched with {action = "Create", controller = "Order"}. Executing action CarWashProcessing.Controllers.OrderController.Create (CarWashProcessing)
+03.09.2018 23:27:21 Entity Framework Core 2.1.2-rtm-30932 initialized 'CarWashProcessingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+03.09.2018 23:27:22 Executed DbCommand (5ms) [Parameters=[@__order_Entity_OrderTypeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Duration], [o].[NeedWorker], [o].[OrderDescription], [o].[OrderName], [o].[OrderTypeId], [o].[Price], [o].[TaskId], [o].[TaskName]
+FROM [vw_OrderTask] AS [o]
+WHERE [o].[OrderTypeId] = @__order_Entity_OrderTypeId_0
+03.09.2018 23:27:22 Executing ObjectResult, writing value of type 'CarWashProcessing.DataModels.Orders'.
+03.09.2018 23:28:52 Entity Framework Core 2.1.2-rtm-30932 initialized 'CarWashProcessingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+03.09.2018 23:27:21 Executing action method CarWashProcessing.Controllers.OrderController.Create (CarWashProcessing) with arguments (CarWashProcessing.Controllers.OrderModerRequest) - Validation state: Valid
+03.09.2018 23:27:22 Executed action method CarWashProcessing.Controllers.OrderController.Create (CarWashProcessing), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 339.7777ms.
+03.09.2018 23:27:22 Executed action CarWashProcessing.Controllers.OrderController.Create (CarWashProcessing) in 384.6765ms
+03.09.2018 23:28:52 Route matched with {action = "Create", controller = "Order"}. Executing action CarWashProcessing.Controllers.OrderController.Create (CarWashProcessing)
+03.09.2018 23:28:52 Executing action method CarWashProcessing.Controllers.OrderController.Create (CarWashProcessing) with arguments (CarWashProcessing.Controllers.OrderModerRequest) - Validation state: Valid
+03.09.2018 23:27:22 Request finished in 391.2045ms 200 application/json; charset=utf-8
+03.09.2018 23:28:52 Request starting HTTP/1.1 POST http://localhost:44392/api/Order application/json-patch+json 74
+03.09.2018 23:27:22 Executed DbCommand (18ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Int32), @p6='?' (DbType = Decimal), @p7='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Orders] ([CarNumber], [ClientName], [DataPost], [EndTime], [IsActive], [OrderTypeId], [Price], [StartTime])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [Id]
+FROM [Orders]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+03.09.2018 23:28:52 Executed DbCommand (22ms) [Parameters=[@__order_Entity_OrderTypeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Duration], [o].[NeedWorker], [o].[OrderDescription], [o].[OrderName], [o].[OrderTypeId], [o].[Price], [o].[TaskId], [o].[TaskName]
+FROM [vw_OrderTask] AS [o]
+WHERE [o].[OrderTypeId] = @__order_Entity_OrderTypeId_0
+03.09.2018 23:28:52 Executing ObjectResult, writing value of type 'CarWashProcessing.DataModels.Orders'.

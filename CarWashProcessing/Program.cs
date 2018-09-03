@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using WebApplication2;
 
 namespace CarWashProcessing
 {
@@ -15,4 +14,7 @@ namespace CarWashProcessing
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
     }
+
+    //Scaffold-DbContext "Server=localhost; Database=CarWashProcessing; Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir DataModels
+    //
 }
